@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  drupal:
+    image: bitnami/drupal:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - mariadb
+    # Drupal için diğer gerekli ayarlar buraya eklenecek
+
+  mariadb:
+    image: bitnami/mariadb:latest
+    environment:
+      MARIADB_USER: YAM428
+      MARIADB_PASSWORD: <ÖğrenciNumaranızıBurayaYazın>
+      MARIADB_DATABASE: final
+    # MariaDB için diğer gerekli ayarlar buraya eklenecek
+
+  nginx:
+    image: nginx
+    # Nginx için gerekli ayarları buraya eklenecek
+
+  certbot:
+    image: certbot/certbot
+    # Certbot için gerekli ayarları buraya eklenecek
